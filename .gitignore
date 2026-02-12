@@ -1,0 +1,35 @@
+
+# Arquivos de ambiente
+.env
+*.env
+
+# Logs
+*.log
+
+# Credenciais
+*.pem
+*.key
+
+# Ignorar o arquivo principal (não recomendado, pois impede o compartilhamento de configurações padrão)
+appsettings.json
+
+# Arquivos de configuração locais/secretos
+appsettings.Development.json
+appsettings.local.json
+
+
+# VS / .NET
+bin/
+obj/
+*.suo
+*.user
+*.vsdx
+*.slnx
+.vs/
+
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+

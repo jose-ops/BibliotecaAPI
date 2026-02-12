@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  api:
+    build: .
+    container_name: minha-api
+    ports:
+      - "5000:8080"
+    depends_on:
+      - rabbitmq
+      - sqlserver
+    environment:
+      - RabbitMQ__HostName=rabbitmq
+      - RabbitMQ__UserName=guest
+      - RabbitMQ__Password=guest
+      - ConnectionStrings__MinhaBibliotecaDB=Server=sqlserver;Database=MinhaBibliotecaDB;User Id=sa;Password=SuaSenha123;
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "SuaSenha123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
