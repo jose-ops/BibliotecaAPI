@@ -20,8 +20,13 @@ builder.Services.AddDbContext<BibliotecaDbContext>(
 // Injeção de dependência
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 builder.Services.AddScoped<ILivroService, LivroService>();
+
+builder.Services.AddScoped<IDescricaoRepository, DescricaoRepository>();
+builder.Services.AddScoped<IDescricaoService, DescricaoService>();
+
 builder.Services.AddScoped<IAutorRepository, AutorRepository>();
 builder.Services.AddScoped<IAutoresService, AutoresService>();
+
 builder.Services.AddScoped<IS3Service, S3Service>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 

@@ -80,11 +80,10 @@ namespace MinhaBibliotecaAPI.Controllers
         {
             try
             {
-                // Busca o usuário pelo email
                 var user = await _context.Usuarios
                     .FirstOrDefaultAsync(u => u.Email == loginDto.Email.ToLower().Trim());
 
-                // Verifica se o usuário existe
+                
                 if (user == null)
                 {
                     return Unauthorized(new { message = "Email ou senha inválidos" });

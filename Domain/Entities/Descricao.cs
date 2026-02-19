@@ -9,7 +9,7 @@ namespace Domain.Entities
 {
     public class Descricao
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string? Editora { get; set; }
         public string? Idioma { get; set; }
         public int NumeroPaginas { get; set; }

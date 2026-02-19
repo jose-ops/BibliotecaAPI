@@ -21,12 +21,14 @@ namespace MinhaBibliotecaAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> Get() => Ok(await _service.ListarTodos());
 
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
             var livro = await _service.BuscarPorId(id);
             return livro == null ? NotFound() : Ok(livro);
         }
+
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -36,6 +38,7 @@ namespace MinhaBibliotecaAPI.Controllers
             await _service.AdicionarNovo(livro);
             return CreatedAtAction(nameof(Get), new { id = livro.Id }, livro);
         }
+
 
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}/upload")]
@@ -59,6 +62,7 @@ namespace MinhaBibliotecaAPI.Controllers
             }
         }
 
+
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Livro livro)
@@ -67,6 +71,7 @@ namespace MinhaBibliotecaAPI.Controllers
             await _service.Atualizar(livro);
             return NoContent();
         }
+
 
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
