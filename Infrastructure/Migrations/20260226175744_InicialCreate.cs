@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InicialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -71,17 +71,17 @@ namespace Infrastructure.Migrations
                 name: "Descricao",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Editora = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Idioma = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NumeroPaginas = table.Column<int>(type: "int", nullable: false),
-                    DataPublicacao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AnoPublicacao = table.Column<int>(type: "int", nullable: false),
                     LivroId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Descricao", x => x.ID);
+                    table.PrimaryKey("PK_Descricao", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Descricao_Livros_LivroId",
                         column: x => x.LivroId,

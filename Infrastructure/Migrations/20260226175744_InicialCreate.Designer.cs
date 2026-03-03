@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(BibliotecaDbContext))]
-    [Migration("20260131160835_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260226175744_InicialCreate")]
+    partial class InicialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,14 +27,14 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Descricao", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DataPublicacao")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("AnoPublicacao")
+                        .HasColumnType("int");
 
                     b.Property<string>("Editora")
                         .HasColumnType("nvarchar(max)");
@@ -48,7 +48,7 @@ namespace Infrastructure.Migrations
                     b.Property<int>("NumeroPaginas")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("LivroId")
                         .IsUnique();
