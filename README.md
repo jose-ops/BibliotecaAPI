@@ -1,10 +1,10 @@
-# 📚 Sistema de Biblioteca - Backend
+# Sistema de Biblioteca - Backend
 
 API REST desenvolvida em .NET 8 para gerenciamento de biblioteca com sistema de autenticação, controle de acesso por roles e upload de imagens para AWS S3.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Framework e Linguagem
 - **.NET 8** - Framework principal
@@ -127,7 +127,7 @@ API estará disponível em: `https://localhost:7086`
 
 ---
 
-## 🔐 Autenticação
+## Autenticação
 
 ### Registrar Usuário
 ```http
@@ -165,7 +165,7 @@ Content-Type: application/json
 
 ---
 
-## 📚 Endpoints da API
+## Endpoints da API
 
 ### **Livros**
 
@@ -232,7 +232,7 @@ Authorization: Bearer {token}
 
 ---
 
-## 🔒 Roles e Permissões
+##  Roles e Permissões
 
 | Endpoint | User | Admin |
 |----------|------|-------|
@@ -318,7 +318,7 @@ public class Autor
 
 ---
 
-## 🧪 Testando a API
+## Testando a API
 
 ### Com Swagger
 Acesse: `https://localhost:7086/swagger`
@@ -346,12 +346,4 @@ Certifique-se de que `app.UseCors("AllowAll")` está **antes** de `app.UseAuthor
 
 ---
 
-## 📝 Licença
-
 Este projeto foi desenvolvido para fins educacionais.
-
----
-
-## 👨‍💻 Desenvolvedor
-
-Desenvolvido com ❤️ usando .NET 8 e AWS
