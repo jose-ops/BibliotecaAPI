@@ -10,7 +10,7 @@ namespace Application.Interfaces
     public interface IAutoresService
     {
         Task<IEnumerable<Autor>> ListarTodos();
-        Task<Autor> BuscarPorId(int id);
+        Task<Autor?> BuscarPorId(int id);
         Task AdicionarNovo(Autor autor);
         Task Atualizar(Autor autor);
         Task Remover(int id);

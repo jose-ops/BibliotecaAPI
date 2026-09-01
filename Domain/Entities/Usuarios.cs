@@ -10,18 +10,18 @@ namespace Domain.Entities
         [Required]
         [EmailAddress]
         [MaxLength(100)]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required]
-        public string PasswordHash { get; set; }
+        public string PasswordHash { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(100)]
-        public string Nome { get; set; }
+        public string Nome { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(20)]
-        public string Role { get; set; }
+        public string Role { get; set; } = string.Empty;
 
         public DateTime DataCriacao { get; set; } = DateTime.Now;
 

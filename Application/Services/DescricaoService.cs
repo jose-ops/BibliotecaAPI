@@ -17,7 +17,7 @@ namespace Application.Services
 
         public Task<IEnumerable<Descricao>> ListarTodos() => _repo.ListarTodos();
 
-        public Task<Descricao> BuscarPorId(int id) => _repo.BuscarPorId(id);
+        public Task<Descricao?> BuscarPorId(int id) => _repo.BuscarPorId(id);
 
         public Task AdicionarNovo(Descricao descricao) => _repo.AdicionarNovo(descricao);
 

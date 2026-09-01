@@ -13,7 +13,7 @@ namespace Domain.Interfaces
         Task<IEnumerable<Autor>> ListarTodos();
 
         //get id
-        Task<Autor> BuscarPorId(int id);
+        Task<Autor?> BuscarPorId(int id);
 
         //post
         Task Adicionar(Autor autor);

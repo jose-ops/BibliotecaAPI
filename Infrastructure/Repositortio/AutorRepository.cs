@@ -42,7 +42,7 @@ namespace Infrastructure.Repositortio
         public async Task Atualizar(Autor autor)
         {
             var autorExistente = await _context.Autor
-            .FirstOrDefaultAsync();
+            .FirstOrDefaultAsync(a => a.Id == autor.Id);
 
             if(autorExistente == null)
                 throw new Exception($"Autor com ID {autor.Id} não encontrado");
@@ -55,14 +55,11 @@ namespace Infrastructure.Repositortio
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Autor> BuscarPorId(int id)
+        public async Task<Autor?> BuscarPorId(int id)
         {
             var autor = await _context.Autor
             .Include(a => a.Livros) // IMPORTANTE: traz os livros do autor
             .FirstOrDefaultAsync(a => a.Id == id);
-
-            if (autor == null)
-                throw new Exception($"Autor com ID {id} não encontrado");
 
             return autor;
         }

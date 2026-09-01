@@ -20,7 +20,7 @@ namespace Application.Services
 
         public Task<IEnumerable<Autor>> ListarTodos() => _repo.ListarTodos();
 
-        public Task<Autor> BuscarPorId(int id) => _repo.BuscarPorId(id);
+        public Task<Autor?> BuscarPorId(int id) => _repo.BuscarPorId(id);
 
         public Task AdicionarNovo(Autor autor ) => _repo.Adicionar(autor);
         public Task Atualizar(Autor autor) => _repo.Atualizar(autor);

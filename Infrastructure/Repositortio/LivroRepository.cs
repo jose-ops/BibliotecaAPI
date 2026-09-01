@@ -28,13 +28,11 @@ namespace Infrastructure.Repositortio
         }
 
         //get id
-        public async Task<Livro> BuscarPorId(int id) =>
+        public async Task<Livro?> BuscarPorId(int id) =>
             await _context.Livros
             .Include(l => l.Autor)
             .Include(d => d.Descricao)
-            .FirstOrDefaultAsync(l => l.Id == id)
-
-            ?? throw new InvalidOperationException($"Livro com Id {id} não encontrado!");
+            .FirstOrDefaultAsync(l => l.Id == id);
 
         //post
         public async Task Adicionar(Livro livro)

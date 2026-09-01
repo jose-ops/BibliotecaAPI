@@ -12,7 +12,7 @@ namespace Application.Interfaces
     {
         Task<IEnumerable<Livro>> ListarTodos();
 
-        Task<Livro> BuscarPorId(int id);
+        Task<Livro?> BuscarPorId(int id);
 
         Task AdicionarNovo(Livro livro);
 

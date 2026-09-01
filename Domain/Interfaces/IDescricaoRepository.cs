@@ -11,7 +11,7 @@ namespace Domain.Interfaces
     {
         Task<IEnumerable<Descricao>> ListarTodos();
 
-        Task<Descricao> BuscarPorId(int id);
+        Task<Descricao?> BuscarPorId(int id);
 
         Task AdicionarNovo(Descricao descricao);
 

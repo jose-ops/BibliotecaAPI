@@ -17,7 +17,7 @@ builder.Services.AddDbContext<BibliotecaDbContext>(
                        .LogTo(Console.WriteLine, LogLevel.Information)//logs
     );
 
-// Injeção de dependência
+// Injeï¿½ï¿½o de dependï¿½ncia
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 builder.Services.AddScoped<ILivroService, LivroService>();
 
@@ -33,7 +33,8 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAuthorization();
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-var secretKey = jwtSettings["SecretKey"];
+var secretKey = jwtSettings["SecretKey"]
+    ?? throw new InvalidOperationException("JwtSettings:SecretKey configuration is missing.");
 
 builder.Services.AddAuthentication(options =>
 {
@@ -51,7 +52,7 @@ builder.Services.AddAuthentication(options =>
             //ValidIssuer = jwtSettings["Issuer"],
             //ValidAudience = jwtSettings["Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
-            ClockSkew = TimeSpan.Zero // Remove o delay padrão de 5 minutos
+            ClockSkew = TimeSpan.Zero // Remove o delay padrï¿½o de 5 minutos
         };
     });
 

@@ -25,15 +25,15 @@ namespace Infrastructure.Repositortio
             return await _context.Descricao.ToListAsync();
         }
 
-        public Task<Descricao> BuscarPorId(int id)
+        public async Task<Descricao?> BuscarPorId(int id)
         {
-            return _context.Descricao.FirstOrDefaultAsync(d => d.Id == id)
-                ?? throw new InvalidOperationException($"Descrição com Id {id} não encontrado!");
+            return await _context.Descricao.FirstOrDefaultAsync(d => d.Id == id);
         }
 
-        public Task AdicionarNovo(Descricao descricao)
+        public async Task AdicionarNovo(Descricao descricao)
         {
-            return _context.Descricao.AddAsync(descricao).AsTask(); 
+            await _context.Descricao.AddAsync(descricao);
+            await _context.SaveChangesAsync();
         }
 
         public Task Atualizar(Descricao descricao)

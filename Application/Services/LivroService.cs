@@ -19,12 +19,12 @@ namespace Application.Services
         public Task<IEnumerable<Livro>> ListarTodos() => _repo.ListarTodos();
 
         //get id
-        public Task<Livro> BuscarPorId(int id) => _repo.BuscarPorId(id);
+        public Task<Livro?> BuscarPorId(int id) => _repo.BuscarPorId(id);
 
         //post
         public Task AdicionarNovo(Livro livro) => _repo.Adicionar(livro);
 
-        public async Task<string> UploadImagemLivroAsync(int id, IFormFile file)
+        public async Task<string?> UploadImagemLivroAsync(int id, IFormFile file)
         {
             // Busca o livro
             var livro = await _repo.GetByIdAsync(id);

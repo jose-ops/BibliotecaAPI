@@ -1,6 +1,4 @@
 ﻿using Amazon.S3;
-using Amazon.S3;
-using Amazon.S3.Transfer;
 using Amazon.S3.Transfer;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -15,10 +13,11 @@ namespace Application.Services
 
         public S3Service(IConfiguration config)
         {
-            _bucketName = config["AWS:BucketName"];
+            _bucketName = config["AWS:BucketName"]
+                ?? throw new InvalidOperationException("AWS:BucketName configuration is missing.");
             _s3Client = new AmazonS3Client(
-                config["AWS:AccessKey"],
-                config["AWS:SecretKey"],
+                config["AWS:AccessKey"] ?? throw new InvalidOperationException("AWS:AccessKey configuration is missing."),
+                config["AWS:SecretKey"] ?? throw new InvalidOperationException("AWS:SecretKey configuration is missing."),
                 Amazon.RegionEndpoint.SAEast1
             );
         }

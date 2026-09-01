@@ -25,7 +25,8 @@ namespace Application.Services
         {
             // Pega as configurações do JWT do appsettings.json
             var jwtSettings = _configuration.GetSection("JwtSettings");
-            var secretKey = jwtSettings["SecretKey"];
+            var secretKey = jwtSettings["SecretKey"]
+                ?? throw new InvalidOperationException("JwtSettings:SecretKey configuration is missing.");
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -40,7 +41,8 @@ namespace Application.Services
             };
 
             // Define quando o token expira
-            var expirationMinutes = int.Parse(jwtSettings["ExpirationInMinutes"]);
+            var expirationMinutes = int.Parse(jwtSettings["ExpirationInMinutes"]
+                ?? throw new InvalidOperationException("JwtSettings:ExpirationInMinutes configuration is missing."));
 
             // Cria o token JWT
             var token = new JwtSecurityToken(

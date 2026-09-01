@@ -56,7 +56,8 @@ namespace MinhaBibliotecaAPI.Controllers
 
                 // Gera o token JWT
                 var token = _tokenService.GenerateToken(user);
-                var expirationMinutes = int.Parse(_configuration["JwtSettings:ExpirationInMinutes"]);
+                var expirationMinutes = int.Parse(_configuration["JwtSettings:ExpirationInMinutes"]
+                    ?? throw new InvalidOperationException("JwtSettings:ExpirationInMinutes configuration is missing."));
 
                 // Retorna os dados do usuário + token
                 return Ok(new AuthResponseDto
@@ -97,7 +98,8 @@ namespace MinhaBibliotecaAPI.Controllers
 
                 // Gera o token JWT
                 var token = _tokenService.GenerateToken(user);
-                var expirationMinutes = int.Parse(_configuration["JwtSettings:ExpirationInMinutes"]);
+                var expirationMinutes = int.Parse(_configuration["JwtSettings:ExpirationInMinutes"]
+                    ?? throw new InvalidOperationException("JwtSettings:ExpirationInMinutes configuration is missing."));
 
                 // Retorna os dados do usuário + token
                 return Ok(new AuthResponseDto
